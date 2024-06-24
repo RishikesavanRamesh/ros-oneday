@@ -1,4 +1,4 @@
-FROM ros:humble
+FROM ros:noetic
 
 # Install sudo
 RUN apt-get update &&\
@@ -22,14 +22,14 @@ RUN echo "#!/bin/bash" >> /post-create-script.sh && \
 
 RUN chmod +x /post-create-script.sh
 
-RUN apt-get update && \
-    apt-get install -y tmate \
-    ros-humble-joint-state-publisher-gui \ 
-    ros-humble-xacro \ 
-    ros-humble-ros-gz \
-    ros-humble-ros2-control \
-    ros-humble-ros2-controllers \
-    ros-humble-moveit 
+# RUN apt-get update && \
+#     apt-get install -y tmate \
+#     ros-humble-joint-state-publisher-gui \ 
+#     ros-humble-xacro \ 
+#     ros-humble-ros-gz \
+#     ros-humble-ros2-control \
+#     ros-humble-ros2-controllers \
+#     ros-humble-moveit 
 
 USER developer
 
