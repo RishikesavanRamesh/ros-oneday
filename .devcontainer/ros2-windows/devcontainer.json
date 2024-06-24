@@ -1,0 +1,28 @@
+ {
+	"name": "ros-dev-windows",
+	"remoteUser": "developer",
+	"dockerComposeFile": ["compose.yml"],
+	"service": "ros-dev",
+	"runServices": ["ros-dev"],
+	
+
+	"shutdownAction": "stopCompose",
+	"workspaceFolder": "/workspace/",
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.cpptools",
+				"ms-vscode.cpptools-themes",
+				"twxs.cmake",
+				"donjayamanne.python-extension-pack",
+				"eamodio.gitlens",
+				"ms-iot.vscode-ros",
+				"ms-azuretools.vscode-docker",
+				"ms-vscode.cmake-tools",
+				"redhat.vscode-xml"
+			]
+		}
+	},
+	"postCreateCommand": "bash /post-create-script.sh"
+}

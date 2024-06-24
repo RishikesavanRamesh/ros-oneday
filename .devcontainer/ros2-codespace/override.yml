@@ -1,0 +1,13 @@
+# override.yml
+services:
+  ros-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sleep infinity
+    environment:
+      - DISPLAY=vnc:0.0
+    depends_on:
+      - vnc
+    networks:
+      - x11

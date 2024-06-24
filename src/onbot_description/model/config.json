@@ -1,0 +1,7 @@
+{
+    "documentId": "40d759e9e4e1b691f013c78c",
+    "robotName": "onbot",
+    "packageName" : "onbot_description/model",
+    "addDummyBaseLink" : true ,
+    "outputFormat": "urdf"
+}
