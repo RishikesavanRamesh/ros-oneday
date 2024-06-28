@@ -1,6 +1,7 @@
 services:
   ros-dev:
-    image: rishikesavanramesh/ros-one-day # change this to your docker image
+    #image: rishikesavanramesh/ros-one-day # change this to your docker image
+    build: .
     volumes:
       - ../../.:/workspace/.
       - /tmp/.X11-unix:/tmp/.X11-unix # Expose X11 socket
