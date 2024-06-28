@@ -1,4 +1,4 @@
-FROM ros:noetic-desktop-full
+FROM osrf/ros:noetic-desktop-full
 
 # Install sudo
 RUN apt-get update &&\
