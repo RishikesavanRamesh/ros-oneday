@@ -7,7 +7,7 @@
 	
 
 	"shutdownAction": "stopCompose",
-	"workspaceFolder": "/workspace/",
+	"workspaceFolder": "/home/developer/my_ros_ws/",
 
 	"customizations": {
 		"vscode": {
