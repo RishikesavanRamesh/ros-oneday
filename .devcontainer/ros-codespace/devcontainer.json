@@ -27,7 +27,8 @@
 
 	"portsAttributes": {
 	  "8080": {
-	    "label": "vnc-viewer"
+	    "label": "vnc-viewer",
+	    "onAutoForward": "openBrowserOnce"
 	  }
 	},
 	"postCreateCommand": "bash /post-create-script.sh"
