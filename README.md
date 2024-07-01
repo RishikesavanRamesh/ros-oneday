@@ -1,5 +1,5 @@
 add a readme
-add ros2-devcontaioner like admiring samples ,
+add ros-devcontaioner like admiring samples ,
 add about windows, codespaces, and linux support, 
 explain the setup , ssh , docker build workflow, and so on .... 
 explain the .env file things and everything else etc ...

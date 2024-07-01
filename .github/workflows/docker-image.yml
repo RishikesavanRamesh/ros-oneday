@@ -41,7 +41,7 @@ jobs:
         run: echo "timestamp=$(date +"%Y-%m-%d_%H-%M-%S")" >> $GITHUB_OUTPUT
         
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ steps.set_docker_repo_name.outputs.docker_repo_name }}:latest -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ steps.set_docker_repo_name.outputs.docker_repo_name }}:${{ steps.timestamp.outputs.timestamp }} .devcontainer/ros2/.
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ steps.set_docker_repo_name.outputs.docker_repo_name }}:latest -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ steps.set_docker_repo_name.outputs.docker_repo_name }}:${{ steps.timestamp.outputs.timestamp }} .devcontainer/ros/.
         
       - name: Push Docker image
         run: |
