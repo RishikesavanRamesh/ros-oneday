@@ -3,10 +3,6 @@
 
 
  ## HOW TO OPEN THIS REPO IN CODESPACE ?
-Click this button
-- [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/RishikesavanRamesh/ros-oneday?devcontainer_path=.devcontainer%2Fros-codespace%2Fdevcontainer.json)
-
-or 
 
  1) Click the code button.
     ![image](https://github.com/RishikesavanRamesh/ros-oneday/assets/84554651/af997927-86e4-43a6-9984-26336e9d99d9)
