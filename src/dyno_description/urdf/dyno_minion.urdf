@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+
+<!-- This URDF was developed by robotoai_technologies for educational purpose -->     
+<robot
+  name="dyno_minion" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+  <link name="base_footprint"/>
+    
+  <joint name="base_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.010"/>
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+  </joint>
+  
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0044755 -0.0009549 0.039021"
+        rpy="0 0 0" />
+      <mass
+        value="1.6789" />
+      <inertia
+        ixx="0.011607"
+        ixy="-4.6471E-09"
+        ixz="1.308E-06"
+        iyy="0.011583"
+        iyz="2.2524E-09"
+        izz="0.023154" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 -0.16 -0.02"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dyno_description/meshes/base_link.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.35 0.35 0.12"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="base_link">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+  <!-- left_wheel -->
+
+  <link
+    name="left_wheel">
+    <inertial>
+      <origin
+        xyz="-1.8613E-11 0.01917 -2.3879E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.2" />
+      <inertia
+        ixx="0.0001708"
+        ixy="-1.5897E-14"
+        ixz="1.047E-13"
+        iyy="0.00029882"
+        iyz="-1.251E-08"
+        izz="0.00017081" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dyno_description/meshes/left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dyno_description/meshes/left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="left_wheel">
+    <mu1>0.9</mu1>
+    <mu2>0.9</mu2>
+    <kp>10000000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <fdir1>1 0 0</fdir1>
+    <material>Gazebo/FlatBlack</material>
+  
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+
+  <joint
+    name="wheel_left_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.12 -0.024"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+
+  <transmission name="left_wheel_joint_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wheel_left_joint"/>
+    <actuator name="wheel_left_joint_motor">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  
+
+
+  <!-- right_wheel -->
+
+  <link
+    name="right_wheel">
+    <inertial>
+      <origin
+        xyz="1.8613E-11 -0.034208 -2.3879E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.2" />
+      <inertia
+        ixx="0.0001708"
+        ixy="-1.5896E-14"
+        ixz="-1.047E-13"
+        iyy="0.00029882"
+        iyz="1.251E-08"
+        izz="0.00017081" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dyno_description/meshes/right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dyno_description/meshes/right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="right_wheel">
+    <mu1>0.9</mu1>
+    <mu2>0.9</mu2>
+    <kp>10000000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <fdir1>1 0 0</fdir1>
+    <material>Gazebo/FlatBlack</material>
+  
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+  <joint
+    name="wheel_right_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.12 -0.024"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+    
+  <transmission name="right_wheel_joint_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wheel_right_joint"/>
+    <actuator name="wheel_right_joint_motor">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>  
+  
+
+
+
+  <link
+    name="castor_front">
+    <inertial>
+      <origin
+        xyz="1.05257219401578E-06 -2.17254769955835E-17 -0.0027368088995401"
+        rpy="0 0 0" />
+      <mass
+        value="0.0752569149525249" />
+      <inertia
+        ixx="6.41749697357868E-06"
+        ixy="-1.03764641093858E-23"
+        ixz="-4.3462843741187E-10"
+        iyy="6.41955351411625E-06"
+        iyz="-1.60276576847454E-22"
+        izz="6.8983940697052E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dyno_description/meshes/castor.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dyno_description/meshes/castor.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="castor_front_joint"
+    type="fixed">
+    <origin
+      xyz="0.10 0 -0.0605"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="castor_front" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <gazebo reference="castor_front">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>10000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+    <material>Gazebo/FlatBlack</material>
+  
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+  <link
+    name="castor_back">
+    <inertial>
+      <origin
+        xyz="1.05257219401578E-06 -2.17254769955835E-17 -0.0027368088995401"
+        rpy="0 0 0" />
+      <mass
+        value="0.0752569149525249" />
+      <inertia
+        ixx="6.41749697357868E-06"
+        ixy="-1.03764641093858E-23"
+        ixz="-4.3462843741187E-10"
+        iyy="6.41955351411625E-06"
+        iyz="-1.60276576847454E-22"
+        izz="6.8983940697052E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dyno_description/meshes/castor.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dyno_description/meshes/castor.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="castor_back_joint"
+    type="fixed">
+    <origin
+      xyz="-0.10 0 -0.0605"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="castor_back" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <gazebo reference="castor_back">
+    <mu1>0.01</mu1>
+    <mu2>0.01</mu2>
+    <kp>10000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+    <material>Gazebo/FlatBlack</material>
+  
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+
+  <link name="imu_link"/>
+
+  <joint 
+    name="imu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+    <origin xyz="0.0 0 0.068" rpy="0 0 0"/>
+  </joint>
+
+  <gazebo reference="imu_link">
+    <sensor type="imu" name="imu">
+      <always_on>true</always_on>
+    </sensor>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
+      <alwaysOn>true</alwaysOn>
+      <bodyName>imu_link</bodyName>
+      <frameName>imu_link</frameName>
+      <topicName>imu</topicName>
+      <serviceName>imu_service</serviceName>
+      <gaussianNoise>0.0</gaussianNoise>
+      <updateRate>0</updateRate>
+      <imu>
+        <noise>
+          <type>gaussian</type>
+          <rate>
+            <mean>0.0</mean>
+            <stddev>2e-4</stddev>
+            <bias_mean>0.0000075</bias_mean>
+            <bias_stddev>0.0000008</bias_stddev>
+          </rate>
+          <accel>
+            <mean>0.0</mean>
+            <stddev>1.7e-2</stddev>
+            <bias_mean>0.1</bias_mean>
+            <bias_stddev>0.001</bias_stddev>
+          </accel>
+        </noise>
+      </imu>
+    </plugin>
+  </gazebo>
+
+
+
+  <link
+    name="lidar">
+    <inertial>
+      <origin
+        xyz="0.000532885262963846 0.0120604067592621 -0.00386496172207688"
+        rpy="0 0 0" />
+      <mass
+        value="0.0730824366775064" />
+      <inertia
+        ixx="2.41258942857417E-05"
+        ixy="1.04166482785358E-07"
+        ixz="-9.60328356398317E-09"
+        iyy="1.95797067949596E-05"
+        iyz="-4.28386494719877E-07"
+        izz="4.14181695186997E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 -0.03"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dyno_description/meshes/lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.0315" radius="0.055"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="lidar_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0.0806"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <gazebo reference="lidar">
+    <material>Gazebo/Blue</material>
+    <turnGravityOff>false</turnGravityOff>
+    <sensor type="ray" name="head_hokuyo_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>false</visualize>
+      <update_rate>5</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>0</min_angle>
+            <max_angle>6.28319</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.120</min>
+          <max>4</max>
+          <resolution>0.001</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+        <topicName>/scan</topicName>
+        <frameName>lidar</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+ 
+  
+  <!-- Differential drive controller  -->
+  <gazebo>
+    <plugin filename="libgazebo_ros_diff_drive.so" name="dyno_differential_drive_controller">
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometrySource>world</odometrySource>
+      <publishOdomTF>true</publishOdomTF>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <publishWheelTF>false</publishWheelTF>
+      <publishTf>true</publishTf>
+      <publishWheelJointState>true</publishWheelJointState>
+      <legacyMode>false</legacyMode>
+      <updateRate>10</updateRate>
+      <leftJoint>wheel_left_joint</leftJoint>
+      <rightJoint>wheel_right_joint</rightJoint>
+      <wheelSeparation>0.3</wheelSeparation>
+      <wheelDiameter>0.11</wheelDiameter>
+      <wheelAcceleration>0.5</wheelAcceleration>
+      <wheelTorque>2</wheelTorque>
+      <rosDebugLevel>na</rosDebugLevel>
+    </plugin>
+  </gazebo>
+
+ 
+
+</robot>

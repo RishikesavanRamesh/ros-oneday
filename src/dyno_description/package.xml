@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>dyno_description</name>
+  <version>1.0.1</version>
+  <description>
+    3D models of the Dyno for simulation and visualization
+  </description>
+  <license>Apache 2.0</license>
+  <author email="rubesh@robotoai.com">Rubesh</author>  
+  <author>RobotoAI</author>
+  <maintainer email="rubesh@robotoai.com">Rubesh</maintainer>
+  <url type="website">http://www.robotoai.com</url>
+  
+  <url type="repository">https://github.com/Rubeshthirumani/dyno_minion</url>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>urdf</depend>
+  <depend>xacro</depend>
+</package>

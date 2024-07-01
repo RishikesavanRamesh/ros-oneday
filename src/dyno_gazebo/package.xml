@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>dyno_gazebo</name>
+  <version>1.0.1</version>
+  <description>
+    Gazebo simulation package for the dyno
+  </description>
+  <license>Apache 2.0</license>
+  <author email="rubesh@robotoai.com">Rubesh</author>
+  
+  <author>RobotoAI</author>
+  <maintainer email="rubesh@robotoai.com">Rubesh</maintainer>
+  <url type="website">http://www.robotoai.com</url>
+  
+  <url type="repository">https://github.com/Rubeshthirumani/dyno_minion</url>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>tf</depend>
+  <depend>gazebo_ros</depend>
+  <exec_depend>gazebo</exec_depend>
+  <exec_depend>dyno_description</exec_depend>
+  <export>
+    <gazebo_ros gazebo_media_path="${prefix}"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models"/>
+  </export>
+</package>

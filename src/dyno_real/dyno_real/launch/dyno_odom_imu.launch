@@ -1,0 +1,9 @@
+<launch>
+
+  </node>
+  <node name="left_encoder_ticks" pkg="dyno_real" type="left_encoder_ticks.py" />
+  <node name="right_encoder_ticks" pkg="dyno_real" type="right_encoder_ticks.py" />
+
+  <node name="odometry_publisher" pkg="dyno_real" type="odom_pub.py" />    
+  
+</launch>
