@@ -11,16 +11,6 @@ RUN useradd -m -s /bin/bash developer && \
 
 RUN mkdir -p /home/developer/.ssh
 
-RUN echo "#!/bin/bash" >> /post-create-script.sh && \
-    echo "sudo chown -R developer:developer /home/developer" >> /post-create-script.sh && \
-    echo "rosdep update && sudo rosdep install --from-paths src --ignore-src -y"  >> /post-create-script.sh && \
-    echo "echo 'source /opt/ros/noetic/setup.bash' >> ~/.bashrc" >> /post-create-script.sh && \
-    echo "source /opt/ros/noetic/setup.bash" >> /post-create-script.sh && \
-    echo "echo ' [ -f '/home/developer/my_ros_ws/devel/setup.bash' ] && source '/home/developer/my_ros_ws/devel/setup.bash' ' >> ~/.bashrc" >> /post-create-script.sh && \
-    echo "[ -f '/home/developer/my_ros_ws/devel/setup.bash' ] && source '/home/developer/my_ros_ws/devel/setup.bash'" >> /post-create-script.sh && \
-    echo "echo -e \"\$SSH_KEY\" > /home/developer/.ssh/id_rsa && chmod 600 /home/developer/.ssh/id_rsa" >> /post-create-script.sh
-
-RUN chmod +x /post-create-script.sh
 
 RUN apt-get update && \
     apt-get install -y git 

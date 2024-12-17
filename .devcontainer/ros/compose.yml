@@ -4,11 +4,9 @@ services:
     build: .
     volumes:
       - ../../.:/home/developer/my_ros_ws/.
-      - /tmp/.X11-unix:/tmp/.X11-unix # Expose X11 socket
-      - ${XAUTHORITY:-$HOME/.Xauthority}:/home/developer/.Xauthority # Mount Xauthority file
+      - /tmp/.X11-unix:/tmp/.X11-unix # Expose X11 socketS
     environment:
       - SSH_KEY=$SSH_KEY
-      - DISPLAY=${DISPLAY}
-      - XAUTHORITY=/home/developer/.Xauthority # Set Xauthority file path
+      - DISPLAY=:45
     command: sleep infinity
     user: developer
